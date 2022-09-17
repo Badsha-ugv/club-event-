@@ -1,0 +1,46 @@
+{% extends 'base.html' %} 
+{% load static %}
+{% block title %} Home {% endblock %} 
+
+{% block css %} 
+<style>
+    .register {
+    width: 100%;
+    height: 300px;
+    background: darkslategray;
+    text-align: center;
+    padding-top: 90px;
+}
+
+</style>
+
+{% endblock %} 
+{% block content %} 
+
+<div class="register">
+    <h2 style="color:white">
+        <span style="color:red;">UGV</span> - Programming Club 
+    </h2>
+    <a href="#" class="btn btn-ls btn-outline-warning">Join Now</a>
+</div>
+
+
+<div class="event">
+    
+    <h3>Upcoming Event</h3>
+    {% for i in event %} 
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="single-enent">
+                <h3>{{ i.title }}</h3>
+                <span>{{ i.date }}</span>
+                <br>
+                <a  class="btn btn-sm btn-success mt-2" href="{% url 'view_event' i.id %}">View Details</a>
+        
+            </div>
+        </div>
+    </div>
+    
+    {% endfor %}
+</div>
+{% endblock %} 

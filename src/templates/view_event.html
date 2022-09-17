@@ -1,0 +1,65 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block css %} 
+<style>
+
+
+.reg-form{
+    width: 75%;
+    margin: auto;
+    /* padding-top: 50px;
+    padding-bottom: 30px; */
+}
+</style>
+{% endblock %} 
+{% block title %} view details {% endblock %} 
+
+{% block content %} 
+
+
+<div class="jumbotron jumbotron m-3 w-75  m-auto">
+    <div class="container">
+      <h1 class="display-4">{{event.title }}</h1>
+      <p class="lead">{{event.desc|linebreaks }}</p>
+    </div>
+  </div>
+
+<br>
+
+<ul class="list-group  w-75 m-auto">
+    <li class="list-group-item"><b>Date</b> : {{ event.date }}</li>
+    <li class="list-group-item"><b>Vanue</b> : {{event.venue }}</li>
+    <li class="list-group-item"><b>Group</b> : {{event.group }}</li>
+    <li class="list-group-item"><b>Duration</b> : {{event.duration }}</li>
+    <li class="list-group-item"><b>Prize</b> : {{event.prize }}</li>
+</ul>
+
+<h2 class="text-center">Register Now</h2>
+
+
+<div class="card card-body reg-form mb-3 mt-3">
+
+
+<form action="" class="p-5" method ='post'> 
+    {% csrf_token %} 
+    <label for="" class="">Name</label>
+    <input type="text" name="name" class="form-control">
+    
+    <label for="" class="">Phone Number</label>
+    <input type="text" name="number" class="form-control">
+    
+    <label for="" class="">Email</label>
+    <input type="email" name="email" class="form-control">
+
+    <label for="" class="">Semester</label>
+    <input type="text" name="semester" class="form-control">
+    
+    <input type="submit" class="btn btn-info btn-sm mt-2 w-100" value="Register">
+    
+
+</form>
+
+</div>
+
+{% endblock %} 
